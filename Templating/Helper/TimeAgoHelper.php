@@ -6,6 +6,12 @@ use Symfony\Component\Templating\Helper\Helper;
 
 class TimeAgoHelper extends Helper {
 
+	protected $translator;
+
+	public function __construct($translator) {
+		$this->translator = $translator;
+	}
+
 	public function getName() {
 		return 'time_ago_in_words';
 	}
