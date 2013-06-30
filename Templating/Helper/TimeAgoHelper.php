@@ -17,7 +17,7 @@ class TimeAgoHelper extends Helper {
 	}
 
 	public function timeAgoInWords($from_time, $include_seconds = null) {
-		return $this->distanceOfTimeInWordsFilter($from_time, new DateTime('now'), $include_seconds);
+		return $this->distanceOfTimeInWordsFilter($from_time, new \DateTime('now'), $include_seconds);
 	}
 
 	public function distanceOfTimeInWordsFilter($from_time, $to_time = null, $include_seconds = null) {
