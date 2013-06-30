@@ -20,7 +20,7 @@
 	"minimum-stability": "dev",
 	"require": {
 		"php": ">=5.3.2",
-		"symfony/framerowk_bundle": "~2.0"
+		"symfony/framerowk_bundle": "2.*"
 	},
 	"required-dev": {
 		"twig/twig": "@stable"
