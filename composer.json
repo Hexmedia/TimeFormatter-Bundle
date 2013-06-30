@@ -1,5 +1,5 @@
 {
-	"name": "salavert/time-ago-in-words",
+	"name": "salavert/time-ago-in-words-bundle",
 	"type": "symfony-bundle",
 	"description": "Twig extension where you can easily convert a datetime or timestamp to a distance of time in words.",
 	"keywords": ["twig", "time ago", "distance of time", "time ago in words"],
@@ -17,6 +17,7 @@
 			"homepage": "http://www.hexmedia.pl"
 		}
 	],
+	"minimum-stability": "dev",
 	"require": {
 		"php": ">=5.3.2",
 		"symfony/framerowk_bundle": "~2.0"
