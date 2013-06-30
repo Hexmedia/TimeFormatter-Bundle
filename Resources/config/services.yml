@@ -1,0 +1,10 @@
+parameters:
+#    hexmedia_admin.example.class: Hexmedia\UserBundle\Example
+
+services:
+    salavert.twig.time_ago:
+        class: Salavert\TimeAgoInWords\Twig\Extension\TimeAgoExtension
+        arguments: [ "@translator" ]
+        tags:
+            - { name: twig.extension }
+
