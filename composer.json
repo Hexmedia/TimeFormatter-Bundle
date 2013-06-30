@@ -4,6 +4,7 @@
 	"keywords": ["twig", "time ago", "distance of time", "time ago in words"],
 	"homepage": "http://github.com/salavert/time-ago-in-words",
 	"license": "MIT",
+	"type": "symfony-bundle",
 	"require": {
 		"php": ">=5.3.0",
 		"twig/twig": "~1.13"
