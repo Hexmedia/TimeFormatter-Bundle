@@ -27,7 +27,7 @@
 	},
 	"autoload": {
 		"psr-0": {
-			"Salavert\\TimeAgoInWords\\": ""
+			"Salavert\\TimeAgoInWordsBundle\\": ""
 		}
 	},
 	"target-dir": "Salavert/TimeAgoInWords"
