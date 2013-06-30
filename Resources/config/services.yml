@@ -4,11 +4,11 @@ parameters:
 services:
     salavert.twig.time_ago_in_words:
         class: Salavert\TimeAgoInWords\Twig\Extension\TimeAgoExtension
-        arguments: [ "@translator", salavert.emplating.helper.time_ago_in_words ]
+        arguments: [ "@translator", salavert.templating.helper.time_ago_in_words ]
         tags:
             - { name: twig.extension }
 
-    templating.helper.time_ago_in_words:
+    salavert.templating.helper.time_ago_in_words:
         class: Salavert\TimeAgoInWordsBundle\Templating\Helper\TimeAgoHelper
         tags:
             - { name: templating.helper, alias: time_ago_in_words }
