@@ -1,18 +1,10 @@
 {
 	"name": "salavert/time-ago-in-words",
+	"type": "symfony-bundle",
 	"description": "Twig extension where you can easily convert a datetime or timestamp to a distance of time in words.",
 	"keywords": ["twig", "time ago", "distance of time", "time ago in words"],
 	"homepage": "http://github.com/salavert/time-ago-in-words",
 	"license": "MIT",
-	"type": "symfony-bundle",
-	"require": {
-		"php": ">=5.3.0",
-		"twig/twig": "~1.13"
-	},
-	"autoload": {
-		"psr-0": {"Salavert\\TimeAgoInWords": ""}
-	},
-	"target-dir": "Salavert/TimeAgoInWords",
 	"authors": [
 		{
 			"name": "Jose Salavert",
@@ -24,5 +16,16 @@
 			"email": "krystian@hexmedia.pl",
 			"homepage": "http://www.hexmedia.pl"
 		}
-	]
+	],
+	"require": {
+		"php": ">=5.3.2",
+		"symfony/framerowk_bundle": "~2.0"
+	},
+	"required-dev": {
+		"twig/twig": "@stable"
+	},
+	"autoload": {
+		"psr-0": {"Salavert\\TimeAgoInWords": ""}
+	},
+	"target-dir": "Salavert/TimeAgoInWords"
 }
