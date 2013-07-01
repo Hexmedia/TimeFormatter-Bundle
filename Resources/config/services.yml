@@ -2,9 +2,9 @@ parameters:
 #    hexmedia_admin.example.class: Hexmedia\UserBundle\Example
 
 services:
-    hexmedia.twig.time_ago_in_words:
+    hexmedia.twig.time_ago:
         class: Hexmedia\TimeAgoBundle\Twig\Extension\TimeAgoExtension
-        arguments: [ "@translator", "@hexmedia.templating.helper.time_ago_in_words" ]
+        arguments: [ "@translator", "@hexmedia.templating.helper.time_ago" ]
         tags:
             - { name: twig.extension }
 
