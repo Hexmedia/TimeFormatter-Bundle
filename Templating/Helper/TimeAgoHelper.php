@@ -8,6 +8,10 @@ use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToStringTransf
 
 class TimeAgoHelper extends Helper {
 
+	/**
+	 *
+	 * @var Symfony\Component\Translation\TranslatorInterface
+	 */
 	protected $translator;
 
 	public function __construct($translator) {
@@ -40,17 +44,17 @@ class TimeAgoHelper extends Helper {
 		$diff = $toTime->diff($fromTime);
 
 		if ($diff->y > 0) {
-			return $this->translator->transChoice('one: Year Ago|some: %year% years ago', $diff->y, array("%year%", $diff->y));
+			return $this->translator->transChoice('one: Year Ago|some: %year% years ago', $diff->y, array("%year%" => $diff->y));
 		} else if ($diff->m > 0) {
-			return $this->translator->transChoice('one: Month ago|some: %month% months ago', $diff->m, array("%month%", $diff->m));
+			return $this->translator->transChoice('one: Month ago|some: %month% months ago', $diff->m, array("%month%" => $diff->m));
 		} else if ($diff->d > 0) {
-			return $this->translator->transChoice('one: Day ago|some: %days% days ago', $diff->d, array("%days%", $diff->d));
+			return $this->translator->transChoice('one: Day ago|some: %days% days ago', $diff->d, array("%days%" => $diff->d));
 		} else if ($diff->h > 0) {
-			return $this->translator->transChoice('one: Hour ago|some: %hours% hours ago', $diff->h, array("%hours%", $diff->h));
+			return $this->translator->transChoice('one: Hour ago|some: %hours% hours ago', $diff->h, array("%hours%" => $diff->h));
 		} else if ($diff->i > 0) {
-			return $this->translator->transChoice('one: Minute ago|some: %minutes% minutes ago', $diff->i, array("%minutes%", $diff->i));
+			return $this->translator->transChoice('one: Minute ago|some: %minutes% minutes ago', $diff->i, array("%minutes%" => $diff->i));
 		} else if ($diff->s > 0) {
-			return $this->translator->transChoice('one: Second ago|some: %seconds% seconds ago', $diff->s, array("%seconds%", $diff->s));
+			return $this->translator->transChoice('one: Second ago|some: %seconds% seconds ago', $diff->s, array("%seconds%" => $diff->s));
 		}
 	}
 
