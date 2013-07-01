@@ -8,8 +8,8 @@ services:
         tags:
             - { name: twig.extension }
 
-    hexmedia.templating.helper.time_ago_in_words:
+    hexmedia.templating.helper.time_ago:
         class: Hexmedia\TimeAgoBundle\Templating\Helper\TimeAgoHelper
         arguments: [ "@translator" ]
         tags:
-            - { name: templating.helper, alias: time_ago_in_words }
+            - { name: templating.helper, alias: time_ago }
