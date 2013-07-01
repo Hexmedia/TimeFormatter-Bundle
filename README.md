@@ -47,6 +47,6 @@ To display distance of time in words between a date and current date:
 
 To display distance of time between two custom dates you should use
 
-	{{ var.data|time_ago(null, message.updated) }}
+	{{ var.data|time_ago(message.updated) }}
 
 
