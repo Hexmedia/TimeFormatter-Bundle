@@ -1,5 +1,5 @@
 {
-	"name": "Hexmedia/time-ago-bundle",
+	"name": "hexmedia/time-ago-bundle",
 	"type": "symfony-bundle",
 	"description": "Symfony2 extension to presenting time in seconds",
 	"keywords": ["twig", "templating", "distance of time", "time ago"],
