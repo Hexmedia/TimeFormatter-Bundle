@@ -1,8 +1,10 @@
 <?php
 
-namespace Salavert\TimeAgoInWordsBundle\Templating\Helper;
+namespace Hexmedia\TimeAgoBundle\Templating\Helper;
 
 use Symfony\Component\Templating\Helper\Helper;
+use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToTimestampTransformer;
+use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToStringTransformer;
 
 class TimeAgoHelper extends Helper {
 
@@ -13,67 +15,64 @@ class TimeAgoHelper extends Helper {
 	}
 
 	public function getName() {
-		return 'time_ago_in_words';
+		return 'time_ago';
 	}
 
-	public function timeAgoInWords($from_time, $include_seconds = null) {
-		return $this->distanceOfTimeInWordsFilter($from_time, new \DateTime('now'), $include_seconds);
+	/**
+	 * As $fromTime and $toTime we can use timestamp as int, @\DateTime or string with format
+	 * from $dateFormat
+	 *
+	 * @param \DateTime|string|int $fromTime
+	 * @param \DateTime|string|int $toTime
+	 * @param string $format simple - currently there is only idea to use this var
+	 * @param string $dateFormat
+	 *
+	 * @return string
+	 */
+	public function TimeAgo($fromTime, $toTime = null, $format = null, $dateFormat = "Y-m-d H:i:s") {
+		if ($toTime == null) {
+			$toTime = new \DateTime('now');
+		}
+
+		$fromTime = $this->convertFormat($fromTime, $dateFormat);
+		$toTime = $this->convertFormat($toTime, $dateFormat);
+
+		$diff = $toTime->diff($fromTime);
+
+		if ($diff->y > 0) {
+			return $this->translator->transChoice('one: Year Ago|some: %year% years ago', $diff->y, array("%year%", $diff->y));
+		} else if ($diff->m > 0) {
+			return $this->translator->transChoice('one: Month ago|some: %month% months ago', $diff->m, array("%month%", $diff->m));
+		} else if ($diff->d > 0) {
+			return $this->translator->transChoice('one: Day ago|some: %days% days ago', $diff->d, array("%days%", $diff->d));
+		} else if ($diff->h > 0) {
+			return $this->translator->transChoice('one: Hour ago|some: %hours% hours ago', $diff->h, array("%hours%", $diff->h));
+		} else if ($diff->i > 0) {
+			return $this->translator->transChoice('one: Minute ago|some: %minutes% minutes ago', $diff->i, array("%minutes%", $diff->i));
+		} else if ($diff->s > 0) {
+			return $this->translator->transChoice('one: Second ago|some: %seconds% seconds ago', $diff->s, array("%seconds%", $diff->s));
+		}
 	}
 
-	public function distanceOfTimeInWordsFilter($from_time, $to_time = null, $include_seconds = null) {
-		$datetime_transformer = new \Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToStringTransformer(null, null, 'Y-m-d H:i:s');
-		$timestamp_transformer = new \Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToTimestampTransformer();
-
-		# Transforming to Timestamp
-		if (!($from_time instanceof \DateTime) && !is_numeric($from_time)) {
-			$from_time = $datetime_transformer->reverseTransform($from_time);
-			$from_time = $timestamp_transformer->transform($from_time);
-		} elseif ($from_time instanceof \DateTime) {
-			$from_time = $timestamp_transformer->transform($from_time);
-		}
-
-		$to_time = empty($to_time) ? new \DateTime('now') : $to_time;
-
-		# Transforming to Timestamp
-		if (!($to_time instanceof \DateTime) && !is_numeric($to_time)) {
-			$to_time = $datetime_transformer->reverseTransform($to_time);
-			$to_time = $timestamp_transformer->transform($to_time);
-		} elseif ($to_time instanceof \DateTime) {
-			$to_time = $timestamp_transformer->transform($to_time);
-		}
-
-		$distance_in_seconds = round(abs($to_time - $from_time));
-		$distance_in_minutes = round($distance_in_seconds / 60);
-		$distance_in_days = round($distance_in_minutes / 24);
-
-		if ($distance_in_minutes <= 1) {
-			if ($include_seconds) {
-				if ($distance_in_seconds < 5) {
-					return $this->translator->trans('less than %seconds seconds ago', array('%seconds' => 5));
-				} elseif ($distance_in_seconds < 10) {
-					return $this->translator->trans('less than %seconds seconds ago', array('%seconds' => 10));
-				} elseif ($distance_in_seconds < 20) {
-					return $this->translator->trans('less than %seconds seconds ago', array('%seconds' => 20));
-				} elseif ($distance_in_seconds < 40) {
-					return $this->translator->trans('half a minute ago');
-				} elseif ($distance_in_seconds < 60) {
-					return $this->translator->trans('less than a minute ago');
-				} else {
-					return $this->translator->trans('1 minute ago');
-				}
+	/**
+	 *
+	 * @param \DateTime|string|int $time
+	 * @param strin  $dateFormat
+	 * @return \DateTime
+	 */
+	private function convertFormat($time, $dateFormat) {
+		if (!($time instanceof \DateTime)) {
+			if (is_number($time)) {
+				$transformer = new DateTimeToTimestampTransformer();
+				$time = $transformer->reverseTransform($time);
+			} else {
+				$transformer = new DateTimeToStringTransformer(null, null, $dateFormat);
+				$time = $transformer->reverseTransport($time);
 			}
-			return ($distance_in_minutes === 0) ? $this->translator->trans('less than a minute ago', array()) : $this->translator->trans('1 minute ago', array());
-		} elseif ($distance_in_minutes <= 45) {
-			return $this->translator->trans('%minutes minutes ago', array('%minutes' => $distance_in_minutes));
-		} elseif ($distance_in_minutes <= 90) {
-			return $this->translator->trans('about 1 hour ago');
-		} elseif ($distance_in_minutes <= 1440) {
-			return $this->translator->trans('about %hours hours ago', array('%hours' => round($distance_in_minutes / 60)));
-		} elseif ($distance_in_minutes <= 2880) {
-			return $this->translator->trans('1 day ago');
-		} else {
-			return $this->translator->trans('%days days ago', array('%days' => round($distance_in_minutes / 1440)));
 		}
+
+		return $time;
 	}
 
 }
+

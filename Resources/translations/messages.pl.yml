@@ -1,13 +1,6 @@
-less than %seconds seconds ago: mniej niż %seconds temu
-half a minute ago: pół minuty temu
-less than a minute ago: mniej niż minutę temu
-1 minute ago: minutę temu
-%minutes minutes ago: %minutes minut temu
-about 1 hour ago: około godziny temu
-about %hours hours ago: %hours godzin temu
-1 day ago: wczoraj
-%days days ago: %days dni temu
-month ago: miesiąc temu
-%months months ago: %months miesiące temu
-year ago: rok temu
-%years years ago: %years lat temu
+'one: Year Ago|some: %year% years ago': 'N1: Rok Temu|N2-N4: %years% lata temu|some: %years% lat temu'
+'one: Month ago|some: %month% months ago': 'N1: Miesiąc temu|N2-N4: %months% miesiące temu|some: %months% miesięcy temu'
+'one: Day ago|some: %days% days ago': 'N1: Wczoraj|N2-N4: %days% dni temu|some: %days% dni temu'
+'one: Hour ago|some: %hours% hours ago': 'N1: Godzinę temu|N2-N4: %hours% godziny temu|some: %hours% godzin temu'
+'one: Minute ago|some: %minutes% minutes ago': 'N1: Minute temu|N2-N4: %minutes% minuty temu|some: %minutes% minut temu'
+'one: Second ago|some: %seconds% seconds ago': 'N1: Sekunde temu|N2-N4: %seconds% sekundy temu|some: %seconds% sekund temu'

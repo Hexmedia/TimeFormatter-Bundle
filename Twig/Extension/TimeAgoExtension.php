@@ -1,8 +1,8 @@
 <?php
 
-namespace Salavert\TimeAgoInWordsBundle\Twig\Extension;
+namespace Hexmedia\TimeAgoBundle\Twig\Extension;
 
-use Salavert\TimeAgoInWordsBundle\Templating\Helper\TimeAgoHelper;
+use Hexmedia\TimeAgoBundle\Templating\Helper\TimeAgoHelper;
 
 class TimeAgoExtension extends \Twig_Extension {
 
@@ -26,43 +26,23 @@ class TimeAgoExtension extends \Twig_Extension {
 
 	public function getFilters() {
 		return array(
-			new \Twig_SimpleFilter('distance_of_time_in_words', array($this, 'distanceOfTimeInWordsFilter')),
-			new \Twig_SimpleFilter('time_ago_in_words', array($this, 'timeAgoInWordsFilter')),
+			new \Twig_SimpleFilter('time_ago', array($this, 'TimeAgoFilter')),
 		);
 	}
 
 	/**
-	 * Like distance_of_time_in_words, but where to_time is fixed to timestamp()
+	 * As $fromTime and $toTime we can use timestamp as int, @\DateTime or string with format
+	 * from $dateFormat
 	 *
-	 * @param $from_time String or DateTime
-	 * @param bool $include_seconds
+	 * @param \DateTime|string|int $fromTime
+	 * @param \DateTime|string|int $toTime
+	 * @param string $format simple - currently there is only idea to use this var
+	 * @param string $dateFormat
 	 *
-	 * @return mixed
+	 * @return string
 	 */
-	public function timeAgoInWordsFilter($fromTime, $includeSeconds = false) {
-		return $this->helper->timeAgoInWords($fromTime, $includeSeconds);
-	}
-
-	/**
-	 * Reports the approximate distance in time between two times given in seconds
-	 * or in a valid ISO string like.
-	 * For example, if the distance is 47 minutes, it'll return
-	 * "about 1 hour". See the source for the complete wording list.
-	 *
-	 * Integers are interpreted as seconds. So, by example to check the distance of time between
-	 * a created user an it's last login:
-	 * {{ user.createdAt|distance_of_time_in_words(user.lastLoginAt) }} returns "less than a minute".
-	 *
-	 * Set include_seconds to true if you want more detailed approximations if distance < 1 minute
-	 *
-	 * @param $from_time String or DateTime
-	 * @param $to_time String or DateTime
-	 * @param bool $include_seconds
-	 *
-	 * @return mixed
-	 */
-	public function distanceOfTimeInWordsFilter($fromTime, $toTime = null, $includeSeconds = false) {
-		return $this->helper->distanceOfTimeInWordsFilter($fromTime, $toTime, $includeSeconds);
+	public function TimeAgoFilter($fromTime, $toTime = null, $format = null, $dateFormat = "Y-m-d H:i:s") {
+		return $this->helper->TimeAgo($fromTime, $toTime, $format, $dateFormat);
 	}
 
 	/**
