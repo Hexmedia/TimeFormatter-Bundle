@@ -1,9 +1,9 @@
 {
-	"name": "hexmedia/time-ago-bundle",
+	"name": "hexmedia/time-formatter",
 	"type": "symfony-bundle",
 	"description": "Symfony2 extension to presenting time in seconds",
-	"keywords": ["twig", "templating", "distance of time", "time ago"],
-	"homepage": "http://github.com/Hexmedia/time-ago",
+	"keywords": ["twig", "time format", "templating", "distance of time"],
+	"homepage": "http://github.com/Hexmedia/time-formatter",
 	"license": "MIT",
 	"authors": [
 		{
@@ -15,15 +15,16 @@
 	"minimum-stability": "dev",
 	"require": {
 		"php": ">=5.3.2",
-		"symfony/framework-bundle": ">=2.0"
+		"symfony/framework-bundle": ">=2.0",
+		"twig/twig": ">=1.13"
 	},
 	"required-dev": {
 		"twig/twig": "@stable"
 	},
 	"autoload": {
 		"psr-0": {
-			"Hexmedia\\TimeAgoBundle": ""
+			"Hexmedia\\TimeFormatterBundle": ""
 		}
 	},
-	"target-dir": "Hexmedia/TimeAgoBundle"
+	"target-dir": "Hexmedia/TimeFormatterBundle"
 }

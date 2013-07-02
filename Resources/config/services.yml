@@ -2,14 +2,14 @@ parameters:
 #    hexmedia_admin.example.class: Hexmedia\UserBundle\Example
 
 services:
-    hexmedia.twig.time_ago_in_words:
-        class: Hexmedia\TimeAgoBundle\Twig\Extension\TimeAgoExtension
-        arguments: [ "@translator", "@hexmedia.templating.helper.time_ago_in_words" ]
+    hexmedia.twig.time_formatter:
+        class: Hexmedia\TimeFormatterBundle\Twig\Extension\TimeFormatterExtension
+        arguments: [ "@translator", "@hexmedia.templating.helper.time_formatter" ]
         tags:
             - { name: twig.extension }
 
-    hexmedia.templating.helper.time_ago:
-        class: Hexmedia\TimeAgoBundle\Templating\Helper\TimeAgoHelper
+    hexmedia.templating.helper.time_formatter:
+        class: Hexmedia\TimeFormatterBundle\Templating\Helper\TimeFormatterHelper
         arguments: [ "@translator" ]
         tags:
-            - { name: templating.helper, alias: time_ago }
+            - { name: templating.helper, alias: time_formatter }

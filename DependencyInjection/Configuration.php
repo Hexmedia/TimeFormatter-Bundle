@@ -1,6 +1,6 @@
 <?php
 
-namespace Hexmedia\TimeAgoBundle\DependencyInjection;
+namespace Hexmedia\TimeFormatterBundle\DependencyInjection;
 
 class Configuration implements ConfigurationInterface {
 
