@@ -22,8 +22,8 @@ class TimeFormatterHelperTest extends \PHPUnit_Framework_TestCase {
 		$this->makeTest('now -1 day', "Few days ago", true);
 		$this->makeTest('now -1 hour', "Hour ago", true);
 		$this->makeTest('now -2 hour', "Few hours ago", true);
-		$this->makeTest('now -1 minute', "About 5 minutes ago", true);
-		$this->makeTest('now -1 second', "Less than minute ago", true);
+		$this->makeTest('now -1 minute', "5 minutes ago", true);
+		$this->makeTest('now -1 second', "Minute ago", true);
 	}
 
 	public function testSimple1Next() {
@@ -32,9 +32,8 @@ class TimeFormatterHelperTest extends \PHPUnit_Framework_TestCase {
 		$this->makeTest('now +1 day', "Tomorrow", true);
 		$this->makeTest('now +1 hour', "Next hour", true);
 		$this->makeTest('now +5 minute', "In next 5 minutes", true);
-		$this->makeTest('now +2 minute', "In less than 5 minutes", true);
-		$this->makeTest('now +1 second', "In less than minute"
-			, true);
+		$this->makeTest('now +2 minute', "In next 5 minutes", true);
+		$this->makeTest('now +1 second', "In less than minute", true);
 	}
 
 	public function testNormal1Ago() {
@@ -51,9 +50,9 @@ class TimeFormatterHelperTest extends \PHPUnit_Framework_TestCase {
 		$this->makeTest('now +1 month', "Next month");
 		$this->makeTest('now +1 day', "Tomorrow");
 		$this->makeTest('now +1 hour', "Next hour");
-		$this->makeTest('now +5 minute', "In next %minutes% minutes");
-		$this->makeTest('now +2 minute', "In next %minutes% minutes");
-		$this->makeTest('now +2 second', "In next %seconds% seconds");
+		$this->makeTest('now +5 minute', "In next 5 minutes");
+		$this->makeTest('now +2 minute', "In next 2 minutes");
+		$this->makeTest('now +2 second', "In next 2 seconds");
 		$this->makeTest('now +1 second', "Next second");
 	}
 
