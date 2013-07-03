@@ -22,6 +22,8 @@ class TimeFormatterHelper extends Helper {
 	 * As $fromTime and $toTime we can use timestamp as int, @\DateTime or string with format
 	 * from $dateFormat
 	 *
+	 * @TODO: Format to be rewritten to ys ms ds hs is ss where first letter means time unit and the second one means format.
+	 *
 	 * @param \DateTime|string|int $fromTime
 	 * @param \DateTime|string|int $toTime
 	 * @param string $format simple - currently there is only idea to use this var
