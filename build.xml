@@ -5,7 +5,7 @@
 	<property name="sourcedir" value="${basedir}" />
 	<property name="builddir" value="${workspace}/build" />
 
-	<target name="build" depends="prepare,parameters,vendors,lint,phploc,pdepend,phpcpd,phpmd-ci,phpcs-ci,phpdoc,phpunit,phpcb"/>
+	<target name="build" depends="prepare,vendors,lint,phploc,pdepend,phpcpd,phpmd-ci,phpcs-ci,phpdoc,phpunit,phpcb"/>
 
 	<target name="build-parallel" depends="prepare,lint,tools-parallel,phpunit,phpcb"/>
 
@@ -44,10 +44,7 @@
 			<arg value="-l" />
 			<fileset dir="${sourcedir}">
 				<include name="**/*.php" />
-				<modified />
-			</fileset>
-			<fileset dir="${basedir}/src/">
-				<include name="**/*Test.php" />
+				<exclude name="**/vendor/**" />
 				<modified />
 			</fileset>
 		</apply>
@@ -57,6 +54,8 @@
 		<exec executable="phploc">
 			<arg value="--log-csv" />
 			<arg value="${builddir}/logs/phploc.csv" />
+			<arg value="--exclude" />
+			<arg value="vendor" />
 			<arg path="${sourcedir}" />
 		</exec>
 	</target>
@@ -66,15 +65,18 @@
 			<arg value="--jdepend-xml=${builddir}/logs/jdepend.xml" />
 			<arg value="--jdepend-chart=${builddir}/pdepend/dependencies.svg" />
 			<arg value="--overview-pyramid=${builddir}/pdepend/overview-pyramid.svg" />
+			<arg value="--ignore=vendor" />
 			<arg path="${sourcedir}" />
 		</exec>
 	</target>
 
 	<target name="phpmd" description="Perform project mess detection using PHPMD and print human readable output. Intended for usage on the command line before committing.">
 		<exec executable="phpmd">
-			<arg path="${basedir}/src" />
+			<arg path="${basedir}" />
+			<arg value="--exclude" />
+			<arg value="/vendor/" />
 			<arg value="text" />
-			<arg value="${workspace}/app/phpmd.xml" />
+			<arg value="${workspace}/phpmd.xml" />
 		</exec>
 	</target>
 
@@ -82,9 +84,11 @@
 		<exec executable="phpmd">
 			<arg path="${sourcedir}" />
 			<arg value="xml" />
-			<arg value="${workspace}/app/phpmd.xml" />
+			<arg value="${workspace}/phpmd.xml" />
 			<arg value="--reportfile" />
 			<arg value="${builddir}/logs/pmd.xml" />
+			<arg value="--exclude" />
+			<arg value="/vendor/" />
 		</exec>
 	</target>
 
@@ -100,6 +104,7 @@
 			<arg value="--report=checkstyle" />
 			<arg value="--report-file=${builddir}/logs/checkstyle.xml" />
 			<arg value="--standard=Symfony2" />
+			<arg value="--ignore=/vendor/" />
 			<arg path="${sourcedir}" />
 		</exec>
 	</target>
@@ -108,20 +113,22 @@
 		<exec executable="phpcpd">
 			<arg value="--log-pmd" />
 			<arg value="${builddir}/logs/pmd-cpd.xml" />
+			<arg value="--exclude" />
+			<arg value="vendor" />
 			<arg path="${sourcedir}" />
 		</exec>
 	</target>
 
 	<target name="phpdoc" description="Generate API documentation using phpDox">
 		<exec executable="phpdoc">
-			<arg line="-d '${sourcedir}' -t '${builddir}/docs' --title='Tempo' " />
+			<arg line="-d '${sourcedir}' -i '*/vendor/*' -t '${builddir}/docs'" />
 		</exec>
 	</target>
 
 	<target name="phpunit" description="Run unit tests with PHPUnit">
 		<exec executable="phpunit" failonerror="true">
 			<arg value="-c" />
-			<arg path="${basedir}/app/phpunit.xml" />
+			<arg path="${basedir}/phpunit.xml" />
 		</exec>
 	</target>
 
@@ -133,13 +140,8 @@
 			<arg path="${sourcedir}" />
 			<arg value="--output" />
 			<arg path="${builddir}/code-browser" />
-		</exec>
-	</target>
-
-	<target name="parameters" description="Copy parameters">
-		<exec executable="cp" failonerror="true">
-			<arg path="app/config/parameters.yml.dist" />
-			<arg path="app/config/parameters.yml" />
+			<arg value="--exclude" />
+			<arg path="${sourcedir}/vendor" />
 		</exec>
 	</target>
 
