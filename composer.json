@@ -1,5 +1,5 @@
 {
-	"name": "hexmedia/time-formatter",
+	"name": "hexmedia/time-formatter-bundle",
 	"type": "symfony-bundle",
 	"description": "Symfony2 extension to presenting time in seconds",
 	"keywords": ["twig", "time format", "templating", "distance of time"],
