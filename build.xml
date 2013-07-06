@@ -96,6 +96,8 @@
 		<exec executable="phpcs">
 			<arg value="--standard=Symfony2" />
 			<arg path="${sourcedir}" />
+			<arg value="-vvv" />
+			<arg value="--ignore=vendor,build" />
 		</exec>
 	</target>
 
@@ -104,7 +106,7 @@
 			<arg value="--report=checkstyle" />
 			<arg value="--report-file=${builddir}/logs/checkstyle.xml" />
 			<arg value="--standard=Symfony2" />
-			<arg value="--ignore=/vendor/" />
+			<arg value="--ignore=vendor,build" />
 			<arg path="${sourcedir}" />
 		</exec>
 	</target>
@@ -115,13 +117,15 @@
 			<arg value="${builddir}/logs/pmd-cpd.xml" />
 			<arg value="--exclude" />
 			<arg value="vendor" />
+			<arg value="--exclude" />
+			<arg value="build" />
 			<arg path="${sourcedir}" />
 		</exec>
 	</target>
 
 	<target name="phpdoc" description="Generate API documentation using phpDox">
 		<exec executable="phpdoc">
-			<arg line="-d '${sourcedir}' -i '*/vendor/*' -t '${builddir}/docs'" />
+			<arg line="-d '${sourcedir}' -i '*/vendor/*,*/build/*,*bootstrap.php' -t '${builddir}/docs'" />
 		</exec>
 	</target>
 
@@ -141,7 +145,10 @@
 			<arg value="--output" />
 			<arg path="${builddir}/code-browser" />
 			<arg value="--exclude" />
-			<arg path="${sourcedir}/vendor" />
+			<arg value="*vendor*" />
+			<arg value="--exclude" />
+			<arg value="*build*" />
+			<arg value="--excludeOK" />
 		</exec>
 	</target>
 
