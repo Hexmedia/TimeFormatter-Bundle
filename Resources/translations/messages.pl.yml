@@ -11,7 +11,7 @@
 
 'Next year|In next %year% years': 'Za rok|Za %year% lata|Za %year% lat'
 'Next month|In next %month% months': 'Za miesiąc|Za %month% miesiące|Za %month% miesięcy'
-'Tomorrow|In next %days% days': 'Jutro|Za %days% dni'
+'Tomorrow|In next %days% days': 'Jutro|Za %days% dni|Za %days dni'
 'Next hour|In next %hours% hours': 'Za godzinę|Za %hours% godziny|Za %hours% godzin'
 'In next hour': 'Za godzinę'
 'In next half hour': 'Za pół godziny'

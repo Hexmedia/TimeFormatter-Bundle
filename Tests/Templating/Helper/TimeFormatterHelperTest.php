@@ -60,7 +60,7 @@ class TimeFormatterHelperTest extends \PHPUnit_Framework_TestCase {
 		$now = new \DateTime('now');
 		$second = new \DateTime($date);
 
-		$result = $this->helper->formatTime($now, $second, $simple ? "simple" : null);
+		$result = $this->helper->formatTime($second, $now, $simple ? "simple" : null);
 
 		$this->assertEquals($result, $expect);
 	}
