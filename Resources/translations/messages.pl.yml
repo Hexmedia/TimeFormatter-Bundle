@@ -1,6 +1,6 @@
 'Year ago|%year% years ago': 'Rok temu|%years% lata temu|%years% lat temu'
 'Month ago|%month% months ago': ' Miesiąc temu|%months% miesiące temu|%months% miesięcy temu'
-'Day ago|%days% days ago': 'Wczoraj|%days% dni temu|%days% dni temu'
+'Yesterday|%days% days ago': 'Wczoraj|%days% dni temu|%days% dni temu'
 'Hour ago|%hours% hours ago': 'Godzinę temu|%hours% godziny temu|%hours% godzin temu'
 'Half hour ago': 'Pół godziny temu'
 'Minute ago|%minutes% minutes ago': 'Minute temu|%minutes% minuty temu|%minutes% minut temu'
