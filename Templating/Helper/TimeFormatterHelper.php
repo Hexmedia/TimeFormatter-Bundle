@@ -39,7 +39,7 @@ class TimeFormatterHelper extends Helper {
 		$fromTime = $this->convertFormat($fromTime, $dateFormat);
 		$toTime = $this->convertFormat($toTime, $dateFormat);
 
-		$diff = $toTime->diff($fromTime);
+		$diff = $fromTime->diff($toTime);
 
 		if (strtolower($format) == "simple") {
 			return $this->formatSimple($diff);
