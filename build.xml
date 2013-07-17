@@ -148,7 +148,6 @@
 			<arg value="*vendor*" />
 			<arg value="--exclude" />
 			<arg value="*build*" />
-			<arg value="--excludeOK" />
 		</exec>
 	</target>
 
