@@ -134,8 +134,7 @@ class TimeFormatterHelper extends Helper {
 	 * @param strin  $dateFormat
 	 * @return \DateTime
 	 */
-	private
-		function convertFormat($time, $dateFormat) {
+	private function convertFormat($time, $dateFormat) {
 		if (!($time instanceof \DateTime)) {
 			if (is_numeric($time)) {
 				$transformer = new DateTimeToTimestampTransformer();
