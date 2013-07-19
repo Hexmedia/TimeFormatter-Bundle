@@ -43,10 +43,10 @@ class TimeFormatterHelper extends Helper
      * As $fromTime and $toTime we can use timestamp as int, @\DateTime or string with format
      * from $dateFormat
      *
-     * @param \DateTime|string|int  $fromTime
-     * @param \DateTime|string|int  $toTime
-     * @param string                $format
-     * @param string                $dateFormat
+     * @param \DateTime|string|int $fromTime
+     * @param \DateTime|string|int $toTime
+     * @param string               $format
+     * @param string               $dateFormat
      * 
      * @TODO: Format to be rewritten to use more specific input
      *
@@ -82,7 +82,6 @@ class TimeFormatterHelper extends Helper
         $str = '';
         $first = null;
         $second = null;
-        $full = null;
         $val = 0;
         if ($diff->y > 0) {
             $str = "year";
@@ -108,6 +107,7 @@ class TimeFormatterHelper extends Helper
         }
         if ($diff->invert) {
             $id = "%" . $str . "%";
+            
             return $this->translator->transChoice(
                 ($first && isset($first['after']) ? $first['after'] : "next " . $str) . "|" . 
                 ($second && isset($second['after']) ? $second['after'] : "in next " . $id . " " . $str . "s"),
@@ -116,6 +116,7 @@ class TimeFormatterHelper extends Helper
                 ));
         } else {
             $id = "%" . $str . "%";
+            
             return $this->translator->transChoice(
                 ($first && isset($first['before']) ? $first['before'] : ($str == "hour" ? 'an' : 'a') . ' ' . $str . ' ago') . "|" .
                 ($second && isset($second['before']) ? $second['before'] : $id . " " . $str . "s ago"),
@@ -129,6 +130,7 @@ class TimeFormatterHelper extends Helper
      * Formating using simple format.
      * 
      * @param \DateInterval $diff
+     * 
      * @return string
      */
     private function formatSimple(\DateInterval $diff)
@@ -160,7 +162,8 @@ class TimeFormatterHelper extends Helper
      * Converting date format to expected by methods
      * 
      * @param \DateTime|string|int $time
-     * @param strin  $dateFormat
+     * @param string               $dateFormat
+     * 
      * @return \DateTime
      */
     private function convertFormat($time, $dateFormat)

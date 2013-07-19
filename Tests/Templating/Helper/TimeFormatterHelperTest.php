@@ -98,7 +98,7 @@ class TimeFormatterHelperTest extends \PHPUnit_Framework_TestCase
      * 
      * @param string $date
      * @param string $expect
-     * @param bool $simple
+     * @param bool   $simple
      */
     private function makeTest($date, $expect, $simple = false)
     {
@@ -111,5 +111,3 @@ class TimeFormatterHelperTest extends \PHPUnit_Framework_TestCase
     }
 
 }
-
-?>
