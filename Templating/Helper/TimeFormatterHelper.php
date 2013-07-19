@@ -155,7 +155,7 @@ class TimeFormatterHelper extends Helper
             $pre = "an";
         }
         
-        return $this->translator->trans($diff->invert ? "in next " . $v : $pre . $v . " ago");
+        return $this->translator->trans($diff->invert ? "in next " . $str : $pre . $str . " ago");
     }
 
     /**
