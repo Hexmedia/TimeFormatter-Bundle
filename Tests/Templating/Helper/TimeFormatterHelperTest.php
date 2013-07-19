@@ -36,14 +36,16 @@ class TimeFormatterHelperTest extends \PHPUnit_Framework_TestCase
      */
     public function testSimpleAgo()
     {
-        $this->makeTest('now -1 year', "Year ago", true);
-        $this->makeTest('now -1 month', "Month ago", true);
-        $this->makeTest('now -1 day', "Few days ago", true);
-        $this->makeTest('now -2 hour', "Few hours ago", true);
-        $this->makeTest('now -1 hour', "Hour ago", true);
-        $this->makeTest('now -30 minutes', "Half hour ago", true);
-        $this->makeTest('now -1 minute', "5 minutes ago", true);
-        $this->makeTest('now -1 second', "Minute ago", true);
+        $this->makeTest('now -1 year', "a year ago", true);
+        $this->makeTest('now -1 month', "a month ago", true);
+        $this->makeTest('now -1 day', "yesterday", true);
+        $this->makeTest('now -2 day', "few days ago", true);
+        $this->makeTest('now -2 hour', "few hours ago", true);
+        $this->makeTest('now -1 hour', "an hour ago", true);
+        $this->makeTest('now -30 minutes', "half hour ago", true);
+        $this->makeTest('now -12 minutes', "15 minutes ago", true);
+        $this->makeTest('now -1 minute', "a minute ago", true);
+        $this->makeTest('now -1 second', "a minute ago", true);
     }
 
     /**
@@ -51,14 +53,14 @@ class TimeFormatterHelperTest extends \PHPUnit_Framework_TestCase
      */
     public function testSimpleNext()
     {
-        $this->makeTest('now +1 year', "Next year", true);
-        $this->makeTest('now +1 month', "Next month", true);
-        $this->makeTest('now +1 day', "Tomorrow", true);
-        $this->makeTest('now +1 hour', "Next hour", true);
-        $this->makeTest('now +30 minutes', "In next half hour", true);
-        $this->makeTest('now +5 minute', "In next 5 minutes", true);
-        $this->makeTest('now +2 minute', "In next 5 minutes", true);
-        $this->makeTest('now +1 second', "In less than minute", true);
+        $this->makeTest('now +1 year', "next year", true);
+        $this->makeTest('now +1 month', "next month", true);
+        $this->makeTest('now +1 day', "tomorrow", true);
+        $this->makeTest('now +1 hour', "next hour", true);
+        $this->makeTest('now +30 minutes', "in next half hour", true);
+        $this->makeTest('now +5 minute', "in next 15 minutes", true);
+        $this->makeTest('now +2 minute', "in next 15 minutes", true);
+        $this->makeTest('now +1 second', "in next minute", true);
     }
 
     /**
@@ -66,13 +68,13 @@ class TimeFormatterHelperTest extends \PHPUnit_Framework_TestCase
      */
     public function testNormalAgo()
     {
-        $this->makeTest('now -1 year', "Year ago");
-        $this->makeTest('now -1 month', "Month ago");
-        $this->makeTest('now -1 day', "Yesterday");
-        $this->makeTest('now -1 hour', "Hour ago");
-        $this->makeTest('now -30 minutes', "30 minutes ago");
-        $this->makeTest('now -1 minute', "Minute ago");
-        $this->makeTest('now -1 second', "Second ago");
+        $this->makeTest('now -1 year', "a year ago");
+        $this->makeTest('now -1 month', "a month ago");
+        $this->makeTest('now -1 day', "yesterday");
+        $this->makeTest('now -1 hour', "an hour ago");
+        $this->makeTest('now -30 minutes', "half hour ago");
+        $this->makeTest('now -1 minute', "a minute ago");
+        $this->makeTest('now -1 second', "a second ago");
     }
 
     /**
@@ -80,15 +82,15 @@ class TimeFormatterHelperTest extends \PHPUnit_Framework_TestCase
      */
     public function testNormalNext()
     {
-        $this->makeTest('now +1 year', "Next year");
-        $this->makeTest('now +1 month', "Next month");
-        $this->makeTest('now +1 day', "Tomorrow");
-        $this->makeTest('now +1 hour', "Next hour");
-        $this->makeTest('now +30 minutes', "In next 30 minutes");
-        $this->makeTest('now +5 minute', "In next 5 minutes");
-        $this->makeTest('now +2 minute', "In next 2 minutes");
-        $this->makeTest('now +2 second', "In next 2 seconds");
-        $this->makeTest('now +1 second', "Next second");
+        $this->makeTest('now +1 year', "next year");
+        $this->makeTest('now +1 month', "next month");
+        $this->makeTest('now +1 day', "tomorrow");
+        $this->makeTest('now +1 hour', "next hour");
+        $this->makeTest('now +30 minutes', "in next half hour");
+        $this->makeTest('now +5 minute', "in next 5 minutes");
+        $this->makeTest('now +2 minute', "in next 2 minutes");
+        $this->makeTest('now +2 second', "in next 2 seconds");
+        $this->makeTest('now +1 second', "next second");
     }
 
     /**
