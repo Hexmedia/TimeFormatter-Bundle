@@ -6,6 +6,9 @@ use Symfony\Component\Templating\Helper\Helper;
 use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToTimestampTransformer;
 use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToStringTransformer;
 
+/**
+ * TimeFormatterHelper
+ */
 class TimeFormatterHelper extends Helper
 {
 

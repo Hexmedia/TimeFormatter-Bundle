@@ -5,6 +5,9 @@ namespace Hexmedia\TimeFormatterBundle\Tests\Templating\Helper;
 use Hexmedia\TimeFormatterBundle\Templating\Helper\TimeFormatterHelper;
 use Symfony\Component\Translation\Translator;
 
+/**
+ * Time formatter helper test class
+ */
 class TimeFormatterHelperTest extends \PHPUnit_Framework_TestCase
 {
 

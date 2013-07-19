@@ -4,6 +4,9 @@ namespace Hexmedia\TimeFormatterBundle\Twig\Extension;
 
 use Hexmedia\TimeFormatterBundle\Templating\Helper\TimeFormatterHelper;
 
+/**
+ * Time formatter extension.
+ */
 class TimeFormatterExtension extends \Twig_Extension
 {
 
