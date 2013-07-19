@@ -70,7 +70,6 @@ class TimeFormatterExtension extends \Twig_Extension
      *
      * @param \DateTime|string|int $fromTime
      * @param \DateTime|string|int $toTime
-     * @param string               $format
      * @param string               $dateFormat
      *
      * @return string

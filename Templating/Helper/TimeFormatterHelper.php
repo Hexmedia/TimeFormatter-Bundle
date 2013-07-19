@@ -135,23 +135,23 @@ class TimeFormatterHelper extends Helper
      */
     private function formatSimple(\DateInterval $diff)
     {
-        $v = '';
+        $str = '';
         $pre = '';
         if ($diff->y > 0 || $diff->m > 0 || $diff->d == 1 || $diff->h == 1) {
             return $this->formatNormal($diff);
         } else if ($diff->d > 0) {
-            $v = "few days";
+            $str = "few days";
         } else if ($diff->h > 0) {
-            $v = "few hours";
+            $str = "few hours";
         } else if ($diff->i < 2) {
-            $v = "minute";
+            $str = "minute";
             $pre = "a ";
         } else if ($diff->i < 20) {
-            $v = "15 minutes";
+            $str = "15 minutes";
         } else if ($diff->i < 40) {
-            $v = "half hour";
+            $str = "half hour";
         } else if ($diff->i < 60) {
-            $v = "hour";
+            $str = "hour";
             $pre = "an";
         }
         
