@@ -13,14 +13,14 @@ class TimeFormatterExtension extends \Twig_Extension
 
     /**
      * Translator
-     * 
+     *
      * @var Translator
      */
     protected $translator;
 
     /**
      * Time Formatter Helper
-     * 
+     *
      * @var TimeFormatterHelper
      */
     protected $helper;

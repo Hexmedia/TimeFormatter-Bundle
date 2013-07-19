@@ -10,13 +10,13 @@ use Symfony\Component\Translation\Translator;
  */
 class TimeFormatterHelperTest extends \PHPUnit_Framework_TestCase
 {
+
     /**
-     *
-     * @var TimeFormatterHelper 
+     * @var TimeFormatterHelper
      */
     private $helper;
+
     /**
-     *
      * @var Translator
      */
     private $translator;
@@ -95,7 +95,7 @@ class TimeFormatterHelperTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Create test.
-     * 
+     *
      * @param string $date
      * @param string $expect
      * @param bool   $simple

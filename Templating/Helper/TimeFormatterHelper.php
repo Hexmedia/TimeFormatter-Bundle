@@ -12,7 +12,8 @@ use \Symfony\Component\Translation\Translator;
  */
 class TimeFormatterHelper extends Helper
 {
-    /** 
+
+    /**
      * Translator 
      * 
      * @var Translator
@@ -107,22 +108,20 @@ class TimeFormatterHelper extends Helper
         }
         if ($diff->invert) {
             $id = "%" . $str . "%";
-            
+
             return $this->translator->transChoice(
-                ($first && isset($first['after']) ? $first['after'] : "next " . $str) . "|" . 
-                ($second && isset($second['after']) ? $second['after'] : "in next " . $id . " " . $str . "s"),
-                $val, array(
+                    ($first && isset($first['after']) ? $first['after'] : "next " . $str) . "|" .
+                    ($second && isset($second['after']) ? $second['after'] : "in next " . $id . " " . $str . "s"), $val, array(
                     $id => $val
-                ));
+            ));
         } else {
             $id = "%" . $str . "%";
-            
+
             return $this->translator->transChoice(
-                ($first && isset($first['before']) ? $first['before'] : ($str == "hour" ? 'an' : 'a') . ' ' . $str . ' ago') . "|" .
-                ($second && isset($second['before']) ? $second['before'] : $id . " " . $str . "s ago"),
-                $val, array(
+                    ($first && isset($first['before']) ? $first['before'] : ($str == "hour" ? 'an' : 'a') . ' ' . $str . ' ago') . "|" .
+                    ($second && isset($second['before']) ? $second['before'] : $id . " " . $str . "s ago"), $val, array(
                     $id => $val
-                ));
+            ));
         }
     }
 
@@ -154,7 +153,7 @@ class TimeFormatterHelper extends Helper
             $str = "hour";
             $pre = "an";
         }
-        
+
         return $this->translator->trans($diff->invert ? "in next " . $str : $pre . $str . " ago");
     }
 
