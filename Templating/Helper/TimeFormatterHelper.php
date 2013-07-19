@@ -11,7 +11,11 @@ use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToStringTransf
  */
 class TimeFormatterHelper extends Helper
 {
-
+    
+    /**
+     *
+     * @var 
+     */
     protected $translator;
 
     public function __construct($translator)
@@ -19,6 +23,11 @@ class TimeFormatterHelper extends Helper
         $this->translator = $translator;
     }
 
+    /**
+     * Get name
+     * 
+     * @return string
+     */
     public function getName()
     {
         return 'time_formatter';

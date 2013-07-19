@@ -10,6 +10,9 @@ Outputs
 
 	day ago
 
+# Build status
+[![Build Status](http://jenkins.hexmedia.pl/buildStatus/icon?job=HexmediaTimeFormatter)](http://jenkins.hexmedia.pl/view/All/job/HexmediaTimeFormatter/)
+
 # Installation for Symfony2
 
 1) Update your composer.json
