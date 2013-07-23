@@ -4,10 +4,16 @@ namespace Hexmedia\TimeFormatterBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
-class Configuration implements ConfigurationInterface {
-
-	public function getConfigTreeBuilder() {
-
-	}
+/**
+ * Dependency injection configuration
+ */
+class Configuration implements ConfigurationInterface
+{
+    /**
+     * {@inheritdoc}
+     */
+    public function getConfigTreeBuilder()
+    {
+    }
 
 }
