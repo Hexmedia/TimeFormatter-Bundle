@@ -1,4 +1,7 @@
-# TimeFormatter Symfony Bundle [![Build Status](http://jenkins.hexmedia.pl/buildStatus/icon?job=HexmediaTimeFormatter)](http://jenkins.hexmedia.pl/view/All/job/HexmediaTimeFormatter/)
+# TimeFormatter Symfony Bundle 
+
+[![Build Status](http://jenkins.hexmedia.pl/buildStatus/icon?job=HexmediaTimeFormatter)](http://jenkins.hexmedia.pl/view/All/job/HexmediaTimeFormatter/)
+[![Build Status](https://travis-ci.org/Hexmedia/TimeFormatter-Bundle.png?branch=master)](https://travis-ci.org/Hexmedia/TimeFormatter-Bundle)
 
 This is a Bundle for Symfony2 Framework where you can easli convert a datetime/timestamp to distance of time in words.
 
