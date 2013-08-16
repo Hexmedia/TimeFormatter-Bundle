@@ -2,6 +2,9 @@
 
 [![Build Status](http://jenkins.hexmedia.pl/buildStatus/icon?job=HexmediaTimeFormatter)](http://jenkins.hexmedia.pl/view/All/job/HexmediaTimeFormatter/)
 [![Build Status](https://travis-ci.org/Hexmedia/TimeFormatter-Bundle.png?branch=master)](https://travis-ci.org/Hexmedia/TimeFormatter-Bundle)
+[![Latest Stable Version](https://poser.pugx.org/hexmedia/time-formatter-bundle/v/stable.png)](https://packagist.org/packages/hexmedia/time-formatter-bundle)
+[![Latest Unstable Version](https://poser.pugx.org/hexmedia/time-formatter-bundle/v/unstable.png)](https://packagist.org/packages/hexmedia/time-formatter-bundle)
+
 
 This is a Bundle for Symfony2 Framework where you can easli convert a datetime/timestamp to distance of time in words.
 
