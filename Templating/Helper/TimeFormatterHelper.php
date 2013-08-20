@@ -5,26 +5,28 @@ namespace Hexmedia\TimeFormatterBundle\Templating\Helper;
 use Symfony\Component\Templating\Helper\Helper;
 use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToTimestampTransformer;
 use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToStringTransformer;
-use \Symfony\Component\Translation\Translator;
+use \Symfony\Component\Translation\TranslatorInterface;
 
 /**
  * TimeFormatterHelper
  */
-class TimeFormatterHelper extends Helper {
+class TimeFormatterHelper extends Helper
+{
 
 	/**
 	 * Translator
 	 *
-	 * @var Translator
+	 * @var TranslatorInterface
 	 */
 	protected $translator;
 
 	/**
 	 * Constructor
 	 *
-	 * @param Translator $translator
+	 * @param TranslatorInterface $translator
 	 */
-	public function __construct(Translator $translator) {
+	public function __construct(TranslatorInterface $translator)
+	{
 		$this->translator = $translator;
 	}
 
@@ -33,7 +35,8 @@ class TimeFormatterHelper extends Helper {
 	 *
 	 * @return string
 	 */
-	public function getName() {
+	public function getName()
+	{
 		return 'time_formatter';
 	}
 
@@ -50,7 +53,8 @@ class TimeFormatterHelper extends Helper {
 	 *
 	 * @return string
 	 */
-	public function formatTime($fromTime, $toTime = null, $format = null, $dateFormat = "Y-m-d H:i:s") {
+	public function formatTime($fromTime, $toTime = null, $format = null, $dateFormat = "Y-m-d H:i:s")
+	{
 		if ($toTime == null) {
 			$toTime = new \DateTime('now');
 		}
@@ -74,7 +78,8 @@ class TimeFormatterHelper extends Helper {
 	 *
 	 * @return string
 	 */
-	private function formatNormal(\DateInterval $diff) {
+	private function formatNormal(\DateInterval $diff)
+	{
 		$str = '';
 		$first = null;
 		$second = null;
@@ -127,7 +132,8 @@ class TimeFormatterHelper extends Helper {
 	 *
 	 * @return string
 	 */
-	private function formatSimple(\DateInterval $diff) {
+	private function formatSimple(\DateInterval $diff)
+	{
 		$str = '';
 		$pre = '';
 		if ($diff->y > 0 || $diff->m > 0 || $diff->d == 1 || $diff->h == 1) {
@@ -159,7 +165,8 @@ class TimeFormatterHelper extends Helper {
 	 *
 	 * @return \DateTime
 	 */
-	private function convertFormat($time, $dateFormat) {
+	private function convertFormat($time, $dateFormat)
+	{
 		if (!($time instanceof \DateTime)) {
 			if (is_numeric($time)) {
 				$transformer = new DateTimeToTimestampTransformer();
