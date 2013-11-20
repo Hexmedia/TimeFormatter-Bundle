@@ -61,7 +61,7 @@ class TimeFormatterExtension extends \Twig_Extension
 	 */
 	public function TimeFormatterFilter($fromTime, $toTime = null, $format = null, $dateFormat = "Y-m-d H:i:s")
 	{
-		return $this->helper->TimeFormatter($fromTime, $toTime, $format, $dateFormat);
+		return $this->helper->formatTime($fromTime, $toTime, $format, $dateFormat);
 	}
 
 	/**
@@ -76,7 +76,7 @@ class TimeFormatterExtension extends \Twig_Extension
 	 */
 	public function TimeFormatterFilterSimple($fromTime, $toTime = null, $dateFormat = "Y-m-d H:i:s")
 	{
-		return $this->helper->TimeFormatter($fromTime, $toTime, 'simple', $dateFormat);
+		return $this->helper->formatTime($fromTime, $toTime, 'simple', $dateFormat);
 	}
 
 	/**

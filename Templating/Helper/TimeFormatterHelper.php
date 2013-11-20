@@ -174,7 +174,7 @@ class TimeFormatterHelper extends Helper
                 $time = $transformer->reverseTransform($time);
             } else {
                 $transformer = new DateTimeToStringTransformer(null, null, $dateFormat);
-                $time = $transformer->reverseTransport($time);
+                $time = $transformer->reverseTransform($time);
             }
         }
 
