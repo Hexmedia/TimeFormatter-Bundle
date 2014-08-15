@@ -4,5 +4,27 @@ php:
     - 5.3
     - 5.4
     - 5.5
+    - 5.6
+    - hhvm
+    - hhvm-nightly
 
-before_script: composer install --dev
+env:
+  - SYMFONY_VERSION=2.3.* DEV=
+  - SYMFONY_VERSION=2.4.* DEV=
+  - SYMFONY_VERSION=2.5.* DEV=
+
+matrix:
+    allow_failures:
+        - php: hhvm-nightly
+
+before_script:
+    - composer require symfony/symfony:${SYMFONY_VERSION} ${DEV} --no-interaction --prefer-dist 
+    - composer install --no-interaction --prefer-dist --dev
+    - phpunit --self-update
+
+addons:
+    code_climate:
+        repo_token: 370cafa980937bfa9b6407e6a1a252dd652a7fac7ebd52e18ac6cc360834e1cf 
+
+after_script:
+    - php bin/test-reporter
