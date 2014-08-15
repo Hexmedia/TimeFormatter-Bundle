@@ -15,11 +15,11 @@
 	"minimum-stability": "dev",
 	"require": {
 		"php": ">=5.3.2",
-		"symfony/framework-bundle": ">=2.0",
+		"symfony/symfony": ">=2.0",
 		"twig/twig": ">=1.13"
 	},
-	"required-dev": {
-		"twig/twig": "@stable"
+	"require-dev": {
+		"codeclimate/php-test-reporter": "~0.1"
 	},
 	"autoload": {
 		"psr-0": {
