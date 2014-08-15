@@ -22,9 +22,8 @@
 		"codeclimate/php-test-reporter": "~0.1"
 	},
 	"autoload": {
-		"psr-0": {
-			"Hexmedia\\TimeFormatterBundle": ""
+		"psr-4": {
+			"Hexmedia\\TimeFormatterBundle\\": ""
 		}
-	},
-	"target-dir": "Hexmedia/TimeFormatterBundle"
+	}
 }

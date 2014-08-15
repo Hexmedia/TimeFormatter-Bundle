@@ -12,7 +12,6 @@ env:
   - SYMFONY_VERSION=2.3.* DEV=
   - SYMFONY_VERSION=2.4.* DEV=
   - SYMFONY_VERSION=2.5.* DEV=
-  - SYMFONY_VERSION=2.6.*@dev DEV=--dev
 
 matrix:
     allow_failures:
